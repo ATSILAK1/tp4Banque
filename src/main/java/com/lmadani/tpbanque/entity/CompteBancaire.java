@@ -21,14 +21,48 @@ public class CompteBancaire implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    private String nom ; 
+    private int solde ;
+    
+    public CompteBancaire(){}
+    
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNom() {
+        return nom;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getSolde() {
+        return solde;
+    }
+
+    public void setSolde(int solde) {
+        this.solde = solde;
+    }
+
+     public CompteBancaire(String nom, int solde) {  
+     this.nom = nom;  
+     this.solde = solde;  
+    }  
+                  
+    public void deposer(int montant) {  
+     solde += montant;  
+    }  
+                  
+    public void retirer(int montant) {  
+     if (montant < solde) {  
+     solde -= montant;  
+    } else {
+      solde = 0;
+    }  
+}
 
     @Override
     public int hashCode() {
