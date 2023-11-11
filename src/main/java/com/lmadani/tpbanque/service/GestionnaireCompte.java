@@ -4,7 +4,12 @@
  */
 package com.lmadani.tpbanque.service;
 
+import com.lmadani.tpbanque.entity.CompteBancaire;
 import jakarta.annotation.sql.DataSourceDefinition;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import java.util.List;
 
 /**
  *
@@ -25,5 +30,17 @@ import jakarta.annotation.sql.DataSourceDefinition;
     }
 )
 public class GestionnaireCompte {
+    
+    @PersistenceContext(unitName = "banquePU")
+    private EntityManager em; 
+            
+    public void creerCompte(CompteBancaire c ){
+        em.persist(c);
+        
+    }
+    public List<CompteBancaire> getAllCompte(){
+        Query query = em.createQuery("SELECT * from CompteBancaire");
+        return query.getResultList() ;
+    }
     
 }
