@@ -16,8 +16,6 @@ import java.io.Serializable;
  * @author USER
  */
 @Entity
-@Table(name ="CompteBancaire")
-
 public class CompteBancaire implements Serializable {
 
     private static final long serialVersionUID = 1L;

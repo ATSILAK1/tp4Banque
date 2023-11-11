@@ -6,6 +6,7 @@ package com.lmadani.tpbanque.service;
 
 import com.lmadani.tpbanque.entity.CompteBancaire;
 import jakarta.annotation.sql.DataSourceDefinition;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -27,8 +28,8 @@ import java.util.List;
       "useSSL=false",
       "allowPublicKeyRetrieval=true",
       "driverClass=com.mysql.cj.jdbc.Driver"
-    }
-)
+    })
+@RequestScoped
 public class GestionnaireCompte {
     
     @PersistenceContext(unitName = "banquePU")
@@ -39,7 +40,7 @@ public class GestionnaireCompte {
         
     }
     public List<CompteBancaire> getAllCompte(){
-        Query query = em.createQuery("SELECT * from CompteBancaire");
+        Query query = em.createQuery("SELECT * from CompteBancaire;");
         return query.getResultList() ;
     }
     

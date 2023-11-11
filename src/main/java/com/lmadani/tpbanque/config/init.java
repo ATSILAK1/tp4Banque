@@ -6,7 +6,8 @@ package com.lmadani.tpbanque.config;
 
 import com.lmadani.tpbanque.entity.CompteBancaire;
 import com.lmadani.tpbanque.service.GestionnaireCompte;
-import jakarta.enterprise.context.Dependent;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
@@ -14,8 +15,8 @@ import jakarta.inject.Named;
  *
  * @author USER
  */
+@ApplicationScoped
 @Named(value = "init")
-@Dependent
 public class init {
 
     /**
@@ -26,7 +27,7 @@ public class init {
     
     public init() {
     }
-    
+    @PostConstruct
     public void initCompte()
     {
         gestionnaireCompte.creerCompte(new CompteBancaire("John Lennon", 150000));
