@@ -7,7 +7,7 @@
         <property name="databaseName" value="banque"/>
         <property name="User" value="root"/>
         <property name="Password" value="root"/>
-        <property name="URL" value="jdbc:mysql://localhost:3306/customer?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+        <property name="URL" value="jdbc:mysql://localhost:3306/banque?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/banque" object-type="user" pool-name="mysql_customer_rootPool"/>

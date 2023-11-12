@@ -15,7 +15,7 @@ import jakarta.inject.Named;
  * @author USER
  */
 
-    @Named(value = "transfert")
+@Named(value = "transfert")
 @RequestScoped
 public class Transfert {
 
@@ -66,7 +66,8 @@ public class Transfert {
             return "erreur avec compte source ";
         if (destination == null)
             return "erreur avec le compte destination ";
-        gestionnaireCompte.
         
+        gestionnaireCompte.transferer(source, destination, montant);
+        return  "transfert effectue avec succes";
     }
 }
